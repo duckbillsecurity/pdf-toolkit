@@ -15,5 +15,5 @@ Options:
 - `-f`, `--file_name`: Name of the PDF file to be saved (default: "output.pdf")
 
 Example usage:
-python pdfclickurl.py -t "Click me" -u "https://www.example.com" -f "mydocument.pdf"
+python pdf2url.py -t "Click me" -u "https://www.example.com" -f "mydocument.pdf"
 
