@@ -18,5 +18,5 @@ Options:
 
 Example usage:
 python pdf2url.py -t "Click me" -u "https://www.example.com" -f "mydocument.pdf"
-NOTE: use double "" quotes
+- NOTE: use double "" quotes
 
