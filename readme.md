@@ -1,4 +1,4 @@
-#pdf2url
+# pdf2url
 
 pdf2url is a Python script that generates a PDF file with a clickable link. It utilizes the ReportLab library to create the PDF and allows you to specify the text for the link, name of the PDF file and the URL to be opened when the link is clicked.
 
