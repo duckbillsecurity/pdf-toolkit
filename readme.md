@@ -1,6 +1,6 @@
 ##pdf2url
 
-<a href="https://streamable.com/arr12g" title="pdf2url"><img src="https://streamable.com/arr12g" alt="pdf2url" /></a>
+<div style="width:100%;height:0px;position:relative;padding-bottom:56.338%;"><iframe src="https://streamable.com/e/arr12g" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
 pdf2url is a Python script that generates a PDF file with a clickable link. It utilizes the ReportLab library to create the PDF and allows you to specify the text for the link, name of the PDF file and the URL to be opened when the link is clicked.
 
