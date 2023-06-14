@@ -14,9 +14,9 @@ Prerequisites:
 Options:
 - `-t`, `--text`: Text shown for the link (default: "Click me")
 - `-u`, `--url`: URL to be opened when the link is clicked (required)
-- `-f`, `--file_name`: Name of the PDF file to be saved (default: "output.pdf")
+- `-o`, `--output`: Name of the PDF file to be saved (default: "output.pdf")
 
 Example usage:
-python pdf2url.py -t "Click me" -u "https://www.example.com" -f "mydocument.pdf"
+python pdf2url.py -t "Click me" -u "https://www.example.com" -o "mydocument.pdf"
 - NOTE: use double "" quotes
 
