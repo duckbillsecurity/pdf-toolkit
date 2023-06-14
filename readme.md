@@ -22,7 +22,7 @@ This script is intended for educational and informational purposes only. Use it 
 `python pdf2url.py -t "Click me" -u "https://www.example.com" -o "mydocument.pdf"`<br />
 - NOTE: use double "" quotes
 
-# pdf2url
+# pdf2js
 
 The code is a Python script that allows you to create a PDF with embedded JavaScript. It provides two main functionalities: creating a blank PDF with a single empty page and inserting JavaScript code into an existing PDF.
 
