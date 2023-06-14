@@ -18,7 +18,7 @@ Arguments:
 
 Example usage:
 <br />
-python pdf2url.py -t "Click me" -u "https://www.example.com" -o "mydocument.pdf"<br />
+`python pdf2url.py -t "Click me" -u "https://www.example.com" -o "mydocument.pdf"`<br />
 - NOTE: use double "" quotes
 
 # pdf2url
@@ -41,11 +41,11 @@ Example usage:
 
 Inserting JavaScript into an existing PDF -
 <br />
-python pdf2url.py -i input.pdf -j script.js -o output.pdf<br />
+`python pdf2url.py -i input.pdf -j script.js -o output.pdf`<br />
 
 Creating a blank PDF and inserting JavaScript -
 <br />
-python pdf2url.py -j script.js -o output.pdf<br />
+`python pdf2url.py -j script.js -o output.pdf`<br />
 
 
 #### DOWNLOAD/INSTALL
