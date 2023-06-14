@@ -9,7 +9,7 @@ This script is intended for educational and informational purposes only. Use it 
 
 #### Prerequisites:
 - Python 3.x installed on your system
-- `reportlab` library installed (`pip install reportlab`)
+- reportlab library installed (pip install reportlab)
 
 #### Arguments:
 ```
@@ -31,7 +31,7 @@ This script is intended for educational and informational purposes only. Use it 
 
 #### Prerequisites:
 - Python 3.x installed on your system
-- PyPDF2: The code utilizes the PyPDF2 library for working with PDF files. You need to have PyPDF2 installed. You can install it using pip: pip install PyPDF2.
+- PyPDF2: The code utilizes the PyPDF2 library for working with PDF files. You need to have PyPDF2 installed (pip install PyPDF2).
 
 #### Arguments:
 ```
