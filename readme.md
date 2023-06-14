@@ -24,7 +24,7 @@ This script is intended for educational and informational purposes only. Use it 
 
 # pdf2js
 
-The code is a Python script that allows you to create a PDF with embedded JavaScript. It provides two main functionalities: creating a blank PDF with a single empty page and inserting JavaScript code into an existing PDF.
+The code is a Python script that allows you to create a PDF with embedded JavaScript. It provides two main functionalities: inserting JavaScript code into in a new blank PDF with a single empty page or an existing PDF.
 
 #### Disclaimer:
 This script is intended for educational and informational purposes only. Use it responsibly. The user assumes all responsibility and risk associated with the use of this script.
