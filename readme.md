@@ -9,18 +9,19 @@ This script is intended for educational and informational purposes only. Use it 
 
 #### Prerequisites:
 - Python 3.x installed on your system
-- reportlab library installed (pip install reportlab)
+- reportlab library installed (pip3 install reportlab)
+Note: Developed and tested on Kali Linux
 
 #### Arguments:
 ```
--t or --text: Text shown for the link (default: "Click me").
--u or --url: URL to be opened when the link is clicked (required).
--o or --output: Name of the PDF file to be saved (default: "output.pdf").
+input: Name of the orginal PDF file (required).
+output: Name of the PDF file to be saved (required).
+url: URL to be opened when the link is clicked (required).
+text: Text shown for the link (required).
 ```
 #### Example usage:
 <br />
-`python pdf2url.py -t "Click me" -u "https://www.example.com" -o "mydocument.pdf"`<br />
-- NOTE: use double "" quotes
+`python pdf2url2.py blank.pdf url.pdf 'https://attackNdefend.com' 'CLICK ME'`<br />
 
 # pdf2js
 
