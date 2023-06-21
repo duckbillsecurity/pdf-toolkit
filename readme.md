@@ -21,7 +21,7 @@ text: Text shown for the link (required).
 ```
 #### Example usage:
 ```
-python pdf2url2.py blank.pdf url.pdf 'https://attackNdefend.com' 'CLICK ME'
+python pdf2url.py blank.pdf url.pdf 'https://attackNdefend.com' 'CLICK ME'
 ```
 
 # pdf2js
