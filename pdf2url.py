@@ -1,48 +1,87 @@
 import argparse
+import os
+from PyPDF2 import PdfReader, PdfWriter
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.colors import blue
 from reportlab.pdfgen import canvas
-from reportlab.lib.colors import black
-from reportlab.pdfbase.pdfmetrics import stringWidth
 
-def create_pdf(file_name, text, url):
-    # Create a PDF canvas
-    c = canvas.Canvas(file_name)
+def insert_autolaunch_url(input_path, output_path, url, text):
+    # Read the input PDF file
+    with open(input_path, 'rb') as file:
+        reader = PdfReader(file)
+        writer = PdfWriter()
 
-    # Define the link coordinates and size
-    x, y = 50, 650
-    font = "Helvetica"
-    font_size = 12
+        # Iterate through each page of the input PDF
+        for page_num in range(len(reader.pages)):
+            page = reader.pages[page_num]
 
-    # Calculate the width of the text
-    text_width = stringWidth(text, font, font_size)
+            # Calculate the font size based on the available space
+            width, height = letter
+            font_size = 24  # Double the font size
+            while True:
+                c = canvas.Canvas("temp.pdf", pagesize=letter)
+                c.setFont("Helvetica", font_size)
+                text_width = c.stringWidth(text)
+                if text_width < width - 200:
+                    break
+                font_size -= 1
 
-    # Adjust the size of the rectangle based on the text width
-    width = text_width + 10  # Add some padding
-    height = 30
+            # Create a new PDF using reportlab
+            c = canvas.Canvas("temp.pdf", pagesize=letter)
+            c.setFont("Helvetica", font_size)
 
-    # Draw a rectangle to simulate a button
-    c.rect(x, y, width, height, fill=0)
+            # Calculate the coordinates for positioning near the top
+            rect_width = text_width + 4
+            rect_height = font_size + 4
+            x = (width - rect_width) / 2
+            y_rect = height - rect_height - 50  # Adjust the offset from the top
+            y_text = y_rect + 6  # Add some space between text and rectangle
 
-    # Add text as a link
-    c.setFillColor(black)  # Set font color to black
-    c.setFont(font, font_size)  # Set font type and size
-    c.drawCentredString(x + width / 2, y + height / 2, text)
+            # Draw a rectangle around the text
+            c.rect(x, y_rect, rect_width, rect_height)
 
-    # Add the link destination
-    c.linkURL(url, (x, y, x + width, y + height), relative=0)
+            # Add the text and hyperlink within the rectangle
+            c.drawString(x + 2, y_text, text)
+            c.linkURL(url, (x, y_rect, x + rect_width, y_rect + rect_height), relative=0, thickness=1, color=blue)
+            c.save()
 
-    # Save the PDF
-    c.save()
+            # Merge the new PDF with the input PDF page
+            temp_pdf = PdfReader("temp.pdf")
+            page.mergePage(temp_pdf.pages[0])
+            writer.add_page(page)
 
-    print("PDF created successfully.")
+        # Write the modified PDF to the output file
+        with open(output_path, 'wb') as output_file:
+            writer.write(output_file)
+
+    # Remove the temporary PDF file
+    os.remove("temp.pdf")
 
 def main():
-    parser = argparse.ArgumentParser(description="Create a PDF with a clickable link.")
-    parser.add_argument("-t", "--text", default="Click me", help="Text shown for the link")
-    parser.add_argument("-u", "--url", required=True, help="URL to be opened when the link is clicked")
-    parser.add_argument("-o", "--output", default="output.pdf", help="Name of the PDF file to be saved (default: output.pdf)")
+    parser = argparse.ArgumentParser(description='Insert URL link into a PDF.')
+    parser.add_argument('input', help='input PDF file path')
+    parser.add_argument('output', help='output PDF file path')
+    parser.add_argument('url', help='URL link to be inserted')
+    parser.add_argument('text', help='text to be displayed')
     args = parser.parse_args()
 
-    create_pdf(args.output, args.text, args.url)
+    input_path = args.input
+    output_path = args.output
+    url = args.url
+    text = args.text
 
-if __name__ == "__main__":
+    # Validate input path
+    if not os.path.isfile(input_path):
+        print(f"Error: Input file '{input_path}' does not exist.")
+        return
+
+    # Remove the output file if it already exists
+    if os.path.isfile(output_path):
+        os.remove(output_path)
+
+    # Insert URL link into the PDF
+    insert_autolaunch_url(input_path, output_path, url, text)
+    print(f"URL link inserted successfully into '{output_path}'.")
+
+if __name__ == '__main__':
     main()
