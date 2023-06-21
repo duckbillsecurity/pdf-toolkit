@@ -45,12 +45,12 @@ This script is intended for educational and informational purposes only. Use it 
 
 Inserting JavaScript into an existing PDF -
 ```
-`python pdf2js.py -i input.pdf -j script.js -o output.pdf`<br />
+python pdf2js.py -i input.pdf -j script.js -o output.pdf
 ```
 
-Creating a blank PDF and inserting JavaScript -
+Creating a blank PDF and inserting JavaScript
 ```
-python pdf2js.py -j script.js -o output.pdf<br />
+python pdf2js.py -j script.js -o output.pdf
 ```
 
 
