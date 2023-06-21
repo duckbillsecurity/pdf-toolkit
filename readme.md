@@ -20,8 +20,9 @@ url: URL to be opened when the link is clicked (required).
 text: Text shown for the link (required).
 ```
 #### Example usage:
-<br />
-`python pdf2url2.py blank.pdf url.pdf 'https://attackNdefend.com' 'CLICK ME'`<br />
+```
+python pdf2url2.py blank.pdf url.pdf 'https://attackNdefend.com' 'CLICK ME'
+```
 
 # pdf2js
 
